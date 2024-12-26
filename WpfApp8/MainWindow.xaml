@@ -1,0 +1,33 @@
+﻿<Window x:Class="WpfApp8.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp8"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DockPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="5">
+                <TextBox x:Name="SearchBox" Width="200" Margin="5" TextChanged="SearchBox_TextChanged"/>
+
+                <ComboBox x:Name="ManufacturerFilter" Width="150" Margin="5" SelectionChanged="ManufacturerFilter_SelectionChanged"/>
+
+
+        	<Button Content="Сортировать по цене ↑" Margin="5" Click="SortAscending_Click"/>
+        	<Button Content="Сортировать по цене ↓" Margin="5" Click="SortDescending_Click"/>
+    	</StackPanel>
+
+                <ScrollViewer>
+                    <ItemsControl x:Name="ProductList">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <local:UserControl1 DataContext="{Binding}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+        </DockPanel>
+
+    </Grid>
+</Window>
